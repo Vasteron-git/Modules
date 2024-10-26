@@ -1,5 +1,6 @@
 import math
 
+
 class Figure:
     sides_count = 0
     def __init__(self, color, *sides):
