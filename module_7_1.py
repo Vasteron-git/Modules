@@ -1,5 +1,3 @@
-from pprint import pprint
-
 
 class Product:
     def __init__(self, name, weight, category):
@@ -18,13 +16,10 @@ class Shop:
         return file.read()
     def add(self, *products):
         exist_products = self.get_products().split('\n')
-        # pprint(exist_products)
         exist_names = []
         for product in exist_products:
             if product:
                 exist_names.append(product.split(', ')[0])
-        # exist_names = [product.split(', ')[0] for product in exist_products if product]
-        # pprint(exist_names)
         file = open(self.__file_name, 'a')
         for product in products:
             if product.name not in exist_names:
