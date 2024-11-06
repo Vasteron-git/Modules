@@ -24,7 +24,6 @@ class MysticBall:
         self.words = list(new_list)
     def __call__(self):
         return choice(self.words)
-
 first_ball = MysticBall('Да', 'Нет', 'Наверное')
 print(first_ball())
 print(first_ball())
