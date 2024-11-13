@@ -16,8 +16,8 @@ class Bank:
                 self.balance += amount
                 time.sleep(0.001)  # Имитация задержки
                 print(f"Пополнение: {amount}. Баланс: {self.balance}")
-        if self.balance >= 500 and self.lock.locked():
-            self.lock.release()
+            if self.balance >= 500 and self.lock.locked():
+                self.lock.release()
 
     def take(self):
         for _i in range(100):
