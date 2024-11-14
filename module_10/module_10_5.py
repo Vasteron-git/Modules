@@ -9,7 +9,6 @@ def read_info(name):
             if len(line) == 0:
                 break
             all_data.append(line.strip())  # Убираем перенос строки
-    # Возвращать или выводить можно, но в этом примере мы просто читаем информацию
 
 if __name__ == '__main__':
     filenames = [f'./Files/file {number}.txt' for number in range(1, 4)]
