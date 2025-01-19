@@ -3,7 +3,7 @@ from aiogram.types import Message
 from aiogram.filters import Command
 import asyncio
 
-api = "8035117873:AAFLKUyHkaHi86AJnkTaO6ZRlMQQHZG2Ibo"
+api = "TOKEN"
 bot = Bot(token=api)
 # storage = MemoryStorage()  # для наглядности создаётся явно
 dp = Dispatcher()
