@@ -1,30 +1,26 @@
-from aiogram import Bot, Dispatcher, types
-from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram import Bot, Dispatcher, F
+from aiogram.types import Message
+from aiogram.filters import Command
 import asyncio
 
-api = "xxxxxxxx:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-bot = Bot(token = api)
-storage = MemoryStorage()  # для наглядности создаётся явно
-dp = Dispatcher(storage = MemoryStorage())
+api = "8035117873:AAFLKUyHkaHi86AJnkTaO6ZRlMQQHZG2Ibo"
+bot = Bot(token=api)
+# storage = MemoryStorage()  # для наглядности создаётся явно
+dp = Dispatcher()
 
-@dp.message.register
-async def handle_text_message(message):
-    # Удаляем лишние пробелы и приводим текст к нижнему регистру
-    user_text = message.text.strip().lower()
-    # Проверяем, соответствует ли текст "привет!" (с восклицательным знаком)
-    if user_text == '/start':
-        await message.reply('Привет! Я бот помогающий твоему здоровью.')
-        # print("Привет! Я бот помогающий твоему здоровью.")
-    else:
-        # print("Введите команду /start, чтобы начать общение.")
-        await message.reply("Введите команду /start, чтобы начать общение.")
-        # print(f"Мы получиои сообщение {user_text}")
+# Функция для обработки команды /start
+@dp.message(Command("start"))
+async def start(message: Message):
+    await message.answer("Привет! Я бот помогающий твоему здоровью.")
 
+# Функция для обработки всех остальных сообщений
+@dp.message(F.text)
+async def all_messages(message: Message):
+    await message.answer(f"Введите команду /start, чтобы начать общение.")
 
 async def main():
     await dp.start_polling(bot)
 
 if __name__ == '__main__':
-    if __name__ == '__main__':
-        asyncio.run(main())
+    asyncio.run(main())
 
